@@ -21,8 +21,8 @@ const actions = {
   setUser(state, user) {
     state.commit('SET_USER', user);
   },
-  setCurrentChannel({ commit }, channel) {
-    commit('SET_CURRENT_CHANNEL', channel)
+  setCurrentChannel(state, channel) {
+    state.commit('SET_CURRENT_CHANNEL', channel)
   }
 };
 

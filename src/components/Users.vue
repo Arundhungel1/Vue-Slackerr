@@ -6,7 +6,7 @@
         <li v-for="user in users" :key="user.uid">
           <span>
             <img class="img rounded-circle" :src="user.avatar" height="20" />
-            <span class="text-primary">{{ user.name }}</span>
+            <span :class="{'text-primary': isOnline(user), 'text-danger': !isOnline(user)}">{{ user.name }}</span>
           </span>
         </li>
       </ul>
@@ -24,7 +24,9 @@ export default {
   data() {
     return {
       users: [],
-      usersRef: firebase.database().ref('users')
+      usersRef: firebase.database().ref('users'),
+      connectedRef: firebase.database().ref('.info/connected'),
+      presenceRef: firebase.database().ref('presence')
     }
   },
   computed: {
@@ -41,11 +43,42 @@ export default {
           this.users.push(user)
         }
         })
+        this.presenceRef.on('child_added', snapshot => {
+          if(this.currentUser.uid !== snapshot.key) {
+            this.addStatusToUser(snapshot.key)
+          }
+        })
+        this.presenceRef.on('child_removed', snapshot => {
+          if(this.currentUser.uid !== snapshot.key) {
+            this.addStatusToUser(snapshot.key, false)
+
+          }
+        })
+
+      this.connectedRef.on('value', snapshot => {
+       if(snapshot.val() === true) {
+         let ref = this.presenceRef.child(this.currentUser.uid)
+         ref.set(true)
+         ref.onDisconnect().remove()
+        }
+      })
+
     },
-
+    addStatusToUser(userId, connected = true) {
+      let index = this.users.findIndex(user => user.uid === userId)
+      if(index !== -1) {
+        connected === true ? this.users[index].status = 'online' : this.users[index].status = 'offline'
+      }
+    },
+    isOnline(user) {
+      return user.status == 'online'
+    },
     detachListeners() {
-
+      this.usersRef.off()
+      this.presenceRef.off()
+      this.connectedRef.off()
     }
+
   },
   mounted() {
     this.addListeners()

@@ -8,9 +8,6 @@
           <div class="input-group-append">
             <button @click="sendMessage" class="btn btn-primary mt-3" type="button">&nbsp; Send &nbsp;</button>
           </div>
-          <div class="input-group-append">
-            <button class="btn btn-warning mt-3" type="button">Upload</button>
-          </div>
       </div>
     </form>
   </div>
@@ -69,7 +66,7 @@ import {mapGetters}  from 'vuex'
     .messageform {
         position: fixed;
         left: 0;
-        bottom: 0;
+        bottom: 10px;
         width: 67%;
         z-index: 100;
         color: white;

@@ -1,9 +1,9 @@
 <template>
   <div>
-    <button @click="openModal" class="btn btn-outline-primary">Add Channel</button>
+    <button @click="openModal" class="btn btn-outline-light">Add Channel</button>
 
     <div class="mt-4">
-        <button v-for="channel in channels" class="list-group-item list-group-item-action" types="button" :class="{'active': setActiveChannel(channel)}" @click="changeChannel(channel)">{{ channel.name}}</button>
+        <li v-for="channel in channels" class="list-group-item list-group-item-action list-group-item-info" :class="{'active': setActiveChannel(channel)}" @click="changeChannel(channel)">{{ channel.name}}</li>
     </div>
 
         <div class="modal fade" id="channelModal">
