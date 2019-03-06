@@ -7,22 +7,26 @@
             <img class="round-circle mr-2" height="30" :src="currentUser.photoURL" />
             <span class="text-light">{{ currentUser.displayName }}</span>
           </span>
-          <hr style="border: 1px solid #333;">
+          <hr>
           <button @click="logout" class="btn btn-outline-light">Logout</button>
           <hr>
           <channels></channels>
+          <hr>
+          <users></users>
   </div>
 </template>
 
 <script>
 import auth from 'firebase/auth';
 import {mapGetters} from 'vuex';
-import Channels from '../components/Channels'
+import Channels from '../components/Channels';
+import Users from '../components/Users'
+
 
 export default {
   name: 'sidebar',
 
-  components: { Channels},
+  components: { Channels, Users },
 
   computed: {
     ...mapGetters(['currentUser'])
