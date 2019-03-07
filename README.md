@@ -1,4 +1,4 @@
-# slackerr
+# Slackerr
 
 > A Vue.js project
 

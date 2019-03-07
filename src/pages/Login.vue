@@ -19,7 +19,7 @@
         <button class="btn btn-primary form-control" disabled v-else>Please wait...</button>
         <big class="form-text">Not registered yet? <router-link to="register">Register</router-link>
                     <span class="float-right text-success" @click.prevent="fp">
-                        <span v-if="!fpform">Forgot password</span>
+                        <span v-if="!fpform" class="forgotpass">Forgot password</span>
                         <span v-else>
                             <i class="fa fa-close text-danger"></i>
                         </span>
@@ -182,4 +182,7 @@ export default {
     background-color: purple;
     color: white;
   }
+.forgotpass:hover {
+  cursor: pointer;
+}
 </style>

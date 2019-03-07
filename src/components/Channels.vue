@@ -3,7 +3,7 @@
     <button @click="openModal" class="btn btn-outline-light">Add Channel</button>
 
     <div class="mt-4">
-        <li v-for="channel in channels" class="list-group-item list-group-item-action" :class="{'active': setActiveChannel(channel)}" @click="changeChannel(channel)">{{ channel.name}}</li>
+        <li v-for="channel in channels" class="list-group-item list-group-item-action channelList" :class="{'active': setActiveChannel(channel)}" @click="changeChannel(channel)">{{ channel.name}}</li>
     </div>
 
         <div class="modal fade" id="channelModal">
@@ -122,4 +122,9 @@ export default {
     background: white;
     color: purple;
   }
+  .channelList:hover {
+    cursor: pointer;
+  }
+
+
 </style>
