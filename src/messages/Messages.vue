@@ -38,8 +38,13 @@ import {mapGetters} from 'vuex'
     addListeners() {
       this.messagesRef.child(this.currentChannel.id).on('child_added', (snapshot) => {
         this.messages.push(snapshot.val())
+
+        this.$nextTick(() => {
+          $("html, body").scrollTop($(document).height());
+          })
         })
     },
+
     detachListeners() {
       if(this.channel !== null) {
         this.messagesRef.child(this.channel.id).off()

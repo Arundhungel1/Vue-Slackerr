@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="jumbotron bg-primary text-white text-center">
+    <div class="jumbotron text-white text-center">
       <h2 class="lead display-3">SLACKERR</h2>
       <p>Where work happens</p>
     </div>
@@ -66,6 +66,9 @@ export default {
 </script>
 
 <style>
+  .jumbotron {
+    background-color: purple;
+  }
   .btn, .jumbotron {
     border-radius: 0px;
   }

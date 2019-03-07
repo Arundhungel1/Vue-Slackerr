@@ -1,7 +1,7 @@
 <template>
 <div>
   <div class="messageform">
-    <form>
+    <form @submit.prevent="sendMessage">
       <div class="input-group mb-3">
         <input v-model.trim="message" name="message" id="message" placeholder="Write away" class="form-control mt-3" autofocus>
 
@@ -46,7 +46,9 @@ import {mapGetters}  from 'vuex'
         if(this.message.length > 0) {
           this.$parent.messagesRef.child(this.currentChannel.id).push().set(newMessage)
           .then(() => {
-
+              this.$nextTick(() => {
+                $("html, body").scrollTop($(document).height());
+                })
             })
             .catch((error) => {
               this.errors.push(error.message)
