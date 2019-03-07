@@ -27,7 +27,7 @@ export default {
 
 <style scoped>
     .sidebar {
-      width: 33.5%;
+      width: 23.5%;
       display: block;
       float: left;
       position: fixed;
@@ -37,9 +37,9 @@ export default {
       overflow: scroll;
     }
     .content {
-      width: 66%;
+      width: 60%;
       display: block;
       float: left;
-      margin-left: 34%;
+      margin-left: 26%;
     }
 </style>

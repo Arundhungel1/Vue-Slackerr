@@ -69,12 +69,12 @@ import {mapGetters}  from 'vuex'
         position: fixed;
         left: 0;
         bottom: 10px;
-        width: 67%;
+        width: 65%;
         z-index: 100;
         color: white;
         text-align: center;
-        margin-bottom: -20px;
-        margin-left: 33.3%;
+        margin-bottom: -18px;
+        margin-left: 28%;
     }
     input, button {
         height:50px;

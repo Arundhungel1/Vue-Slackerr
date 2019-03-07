@@ -1,10 +1,10 @@
 <template>
   <div>
 
-          <h2 class="text-light">SLACKERR</h2>
+          <h2 class="text-light text-center"><i class="fab fa-slack"></i><br>SLACKERR</h2>
           <hr style="border: 1px solid #333;">
           <span>
-            <img class="round-circle mr-2" height="30" :src="currentUser.photoURL" />
+            <img class="rounded-circle mr-2" height="30" :src="currentUser.photoURL" />
             <span class="text-light">{{ currentUser.displayName }}</span>
           </span>
           <hr>
